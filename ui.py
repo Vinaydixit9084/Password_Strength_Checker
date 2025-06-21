@@ -22,9 +22,12 @@ def main():
         generated_password = generate_password()
         st.success(f"Generated Password: {generated_password}")
         st.text_input("Generated Password", value=generated_password, disabled=True)
-        # Copy the generated password to clipboard  
-        pyperclip.copy(generated_password)
-        st.success("The generated password has been copied to your clipboard.")
+        
+        try:
+            pyperclip.copy(generated_password)
+            st.success("The generated password has been copied to your clipboard.")
+        except pyperclip.PyperclipException as e:
+            st.error("Failed to copy the password to clipboard. Please copy it manually.")
 
 if __name__ == "__main__":
     main()
