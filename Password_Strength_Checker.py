@@ -33,7 +33,6 @@ def password_checker():
         print(result)
 
 
-
 if __name__ == "__main__":
     password_checker()
 
